@@ -32,8 +32,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-6">
-          <a href="#studios" className="hidden md:block bg-studio-matcha text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-studio-matcha-hover rounded-full transition-colors cursor-pointer">
+          <a 
+            href="#studios" 
+            className="hidden md:block bg-studio-matcha text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-studio-matcha-hover rounded-full transition-colors cursor-pointer"
+          >
             Jetzt buchen
+          </a>
+          <a href="https://www.instagram.com/four7pilates/" target="_blank" rel="noopener noreferrer" className="hidden sm:block text-studio-anthracite/40 hover:text-studio-rosa transition-colors">
+            <Instagram size={20} />
           </a>
           <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -53,7 +59,7 @@ const Navbar = () => {
             <a href="#kurse" className="text-lg font-display" onClick={() => setIsMobileMenuOpen(false)}>Kurse</a>
             <a href="#uber-uns" className="text-lg font-display" onClick={() => setIsMobileMenuOpen(false)}>Über Uns</a>
             <a href="#studios" className="text-lg font-display" onClick={() => setIsMobileMenuOpen(false)}>Studios</a>
-            <a href="#studios" className="bg-studio-matcha text-white px-8 py-4 text-center uppercase tracking-widest" onClick={() => setIsMobileMenuOpen(false)}>
+            <a href="#studios" className="bg-studio-matcha text-white px-8 py-4 text-center uppercase tracking-widest rounded-full" onClick={() => setIsMobileMenuOpen(false)}>
               Jetzt buchen
             </a>
           </motion.div>
@@ -71,6 +77,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
+          className="text-left"
         >
           <div className="w-10 h-[1px] bg-studio-rosa mb-6"></div>
           <span className="text-studio-rosa uppercase tracking-[0.3em] text-[10px] font-bold mb-4 block">four7pilates studio</span>
@@ -78,7 +85,7 @@ const Hero = () => {
             Move with<br />
             intention.
           </h1>
-          <p className="text-base max-w-sm mb-10 text-studio-anthracite/80 leading-relaxed">
+          <p className="text-base max-w-sm mb-10 text-studio-anthracite/80 leading-relaxed font-light">
             Ein Pariser Concept Store trifft auf Boutique-Fitness. Wir glauben an Stärke durch Stille und Gemeinschaft durch Bewegung.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
@@ -95,11 +102,11 @@ const Hero = () => {
             <div className="flex -space-x-2">
               {[1, 2, 3].map(i => (
                 <div key={i} className="w-8 h-8 rounded-full border-2 border-studio-bg bg-studio-rosa/30 overflow-hidden">
-                   <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 10}`} alt="User" referrerPolicy="no-referrer" />
+                   <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 15}`} alt="User" referrerPolicy="no-referrer" />
                 </div>
               ))}
             </div>
-            <span>Vertraut von über 500 Mitgliedern</span>
+            <span className="text-[10px] uppercase tracking-widest font-bold opacity-70">Vertraut von über 500 Mitgliedern</span>
           </div>
         </motion.div>
 
@@ -133,10 +140,10 @@ const QuoteSection = () => {
           className="relative"
         >
            <span className="absolute -top-10 left-0 text-9xl font-display text-studio-rosa opacity-20">"</span>
-           <h2 className="serif text-3xl md:text-5xl leading-tight mb-8">
-            „Die Atmosphäre bei <span className="text-studio-rosa italic">four7pilates</span> ist unvergleichlich. Keine Hektik, nur Fokus auf den eigenen Körper. Endlich ein Ort, der Qualität über Quantität stellt.“
+           <h2 className="serif text-3xl md:text-5xl leading-tight mb-8 text-studio-anthracite">
+            „Die Atmosphäre bei <span className="text-studio-rosa italic">four7pilates</span> ist wie ein tiefer Atemzug. Exklusiv, fokussiert und unglaublich effektiv.“
            </h2>
-           <p className="text-studio-matcha uppercase tracking-widest font-medium">— Sarah M., Mitglied seit 2 Jahren</p>
+           <p className="text-studio-matcha uppercase tracking-widest font-bold text-xs">— Marie L., Mitglied seit 2023</p>
         </motion.div>
       </div>
     </section>
@@ -145,15 +152,15 @@ const QuoteSection = () => {
 
 const Features = () => {
   const items = [
-    { title: "Kleine Klassen", desc: "Maximal 8 Teilnehmer für individuelle Betreuung und Haltungskorrektur." },
-    { title: "Experteninstruktoren", desc: "Zertifizierte Trainer mit jahrelanger Erfahrung in Anatomie und Bewegung." },
-    { title: "Gemeinschaft", desc: "Ein unterstützendes Umfeld, in dem du dich sicher und willkommen fühlst." },
+    { title: "Kleine Klassen", desc: "Maximal 8 Teilnehmer für individuelle Betreuung und direkte Haltungskorrektur." },
+    { title: "Expertise", desc: "Zertifizierte Trainer mit Fokus auf funktionale Anatomie und bewusste Bewegung." },
+    { title: "Gemeinschaft", desc: "Ein exklusives, unterstützendes Umfeld für alle, die Design und Training lieben." },
   ];
 
   return (
     <section id="uber-uns" className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
           {items.map((item, index) => (
             <motion.div
               key={index}
@@ -165,7 +172,7 @@ const Features = () => {
             >
               <div className="w-10 h-[1px] bg-studio-rosa mb-8 group-hover:w-full transition-all duration-700"></div>
               <h3 className="serif text-3xl mb-4">{item.title}</h3>
-              <p className="text-studio-anthracite/70 leading-relaxed">{item.desc}</p>
+              <p className="text-studio-anthracite/70 leading-relaxed font-light text-sm">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -176,21 +183,21 @@ const Features = () => {
 
 const Courses = () => {
   const courses = [
-    { title: "Reformer Core", level: "Signature", duration: "55m", price: "30€" },
+    { title: "Reformer Flow", level: "Signature", duration: "55m", price: "30€" },
     { title: "Hot Pilates", level: "Athletic", duration: "50m", price: "32€" },
-    { title: "Flow Pilates", level: "Classic", duration: "55m", price: "30€" },
-    { title: "Intro Private", level: "Personal", duration: "60m", price: "85€" },
+    { title: "Fundamental", level: "Classic", duration: "55m", price: "30€" },
+    { title: "Private Suite", level: "1:1 Training", duration: "60m", price: "85€" },
   ];
 
   return (
     <section id="kurse" className="bg-studio-bg py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-xl">
-            <h2 className="serif text-5xl mb-6 text-left">Wähle deine <span className="italic">Klasse.</span></h2>
-            <p className="text-studio-anthracite/60 text-left">Von den Grundlagen bis zur Performance – wir begleiten dich auf jedem Level.</p>
+          <div className="max-w-xl text-left">
+            <h2 className="serif text-5xl mb-6">Wähle deinen <span className="text-studio-rosa italic">Flow.</span></h2>
+            <p className="text-studio-anthracite/60 text-sm font-light">Vom sanften Einstieg bis zum intensiven Workout – wir begleiten dich auf deiner persönlichen Reise.</p>
           </div>
-          <a href="#" className="text-studio-matcha uppercase tracking-widest text-sm font-medium border-b border-studio-matcha/30 pb-1">Alle Kurse ansehen</a>
+          <a href="#studios" className="text-studio-matcha uppercase tracking-widest text-[10px] font-bold border-b border-studio-matcha/30 pb-1">Jetzt Termin buchen</a>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -198,23 +205,23 @@ const Courses = () => {
             <motion.div
               key={index}
               whileHover={{ y: -5 }}
-              className="bg-white p-8 group relative rounded-[2px] border-b-3 border-transparent hover:border-studio-matcha transition-all duration-300"
+              className="bg-white p-8 group relative rounded-[2px] border-b-3 border-transparent hover:border-studio-matcha transition-all duration-300 shadow-sm"
             >
                <div className="mb-12 text-left">
                  <span className="text-studio-matcha text-[10px] uppercase tracking-widest font-bold mb-4 block">
                    {course.level}
                  </span>
                  <h3 className="serif text-2xl mb-2">{course.title}</h3>
-                 <p className="text-studio-anthracite/50 text-xs mb-4 leading-relaxed">Ganzkörper-Workout mit Fokus auf Präzision, Kontrolle und fließende Übergänge.</p>
+                 <p className="text-studio-anthracite/50 text-xs mb-4 leading-relaxed font-light italic">Ganzkörper-Workout mit Fokus auf Präzision.</p>
                  <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-studio-anthracite/40 font-bold">
                    <div className="flex items-center gap-1"><Clock size={12} /> {course.duration}</div>
-                   <div>{course.price}</div>
+                   <div>AB {course.price}</div>
                  </div>
                </div>
-               <button className="w-full text-left flex justify-between items-center group-hover:text-studio-matcha transition-colors cursor-pointer text-xs uppercase tracking-widest font-bold">
-                 <span>Details</span>
+               <a href="#studios" className="w-full text-left flex justify-between items-center group-hover:text-studio-matcha transition-colors cursor-pointer text-[10px] uppercase tracking-widest font-bold">
+                 <span>Buchen</span>
                  <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-               </button>
+               </a>
             </motion.div>
           ))}
         </div>
@@ -232,12 +239,12 @@ const Instructors = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="aspect-[4/5] relative z-10"
+            className="aspect-[4/5] relative z-10 rounded-[2px] overflow-hidden"
           >
              <img
               src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1920&auto=format&fit=crop"
               alt="Caroline Flach"
-              className="w-full h-full object-cover grayscale"
+              className="w-full h-full object-cover grayscale brightness-110"
               referrerPolicy="no-referrer"
              />
           </motion.div>
@@ -245,25 +252,25 @@ const Instructors = () => {
         </div>
 
         <div className="text-left">
-          <span className="text-studio-rosa uppercase tracking-[0.2em] text-sm block mb-4">Besitzerin & Founder</span>
-          <h2 className="serif text-5xl mb-8 leading-tight">Meet Caroline <span className="italic">Flach.</span></h2>
-          <div className="space-y-6 text-studio-anthracite/80 leading-relaxed text-left">
+          <span className="text-studio-rosa uppercase tracking-[0.2em] text-xs font-bold block mb-4">Besitzerin & Founderin</span>
+          <h2 className="serif text-5xl mb-8 leading-tight">Caroline <span className="italic">Flach.</span></h2>
+          <div className="space-y-6 text-studio-anthracite/80 leading-relaxed text-left font-light text-base">
             <p>
-              Caroline Flach gründete <span className="text-studio-rosa">four7pilates</span> mit der Mission, Reformer & Hot Pilates in einem exklusiven, ästhetischen Rahmen zugänglich zu machen.
+              Caroline Flach gründete <span className="text-studio-rosa font-medium">four7pilates</span> mit der Mission, Reformer & Hot Pilates in einem exklusiven, ästhetischen Rahmen zugänglich zu machen.
             </p>
             <p>
-              Ihr Fokus liegt auf Präzision, Kraft und dem Zusammenspiel von Körper und Geist. In ihren Studios in Vechta und Diepholz schafft sie Räume, die über das reine Training hinausgehen.
+              Ihr Fokus liegt auf Präzision, Kraft und dem Zusammenspiel von Körper und Geist. In ihren Studios schafft sie Räume, die über das reine Training hinausgehen und zum Verweilen einladen.
             </p>
           </div>
           <div className="mt-10 flex gap-8 items-center">
-            <div className="flex flex-col text-left">
-              <span className="text-3xl font-display">Vechta</span>
-              <span className="text-xs uppercase tracking-widest text-studio-anthracite/40">Studio & Café</span>
+            <div className="flex flex-col">
+              <span className="text-3xl serif">Vechta</span>
+              <span className="text-[10px] uppercase tracking-widest text-studio-anthracite/40 font-bold">Studio & Café</span>
             </div>
             <div className="w-8 h-[1px] bg-studio-rosa"></div>
-            <div className="flex flex-col text-left">
-              <span className="text-3xl font-display">Diepholz</span>
-              <span className="text-xs uppercase tracking-widest text-studio-anthracite/40">Studio B</span>
+            <div className="flex flex-col">
+              <span className="text-3xl serif">Diepholz</span>
+              <span className="text-[10px] uppercase tracking-widest text-studio-anthracite/40 font-bold">Studio B</span>
             </div>
           </div>
         </div>
@@ -284,16 +291,20 @@ const Studios = () => {
     {
       city: "Diepholz",
       address: "Moorstraße 23, 49356 Diepholz",
-      special: "Reformer Pilates",
+      special: "Reformer Pilates Suite",
       link: "https://www.eversports.de/scl/four7-pilates-diepholz",
       image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1920&auto=format&fit=crop"
     }
   ];
 
   return (
-    <section id="studios" className="py-24 px-6 bg-white">
+    <section id="studios" className="py-24 px-6 bg-white border-t border-studio-bg">
       <div className="max-w-7xl mx-auto">
-        <h2 className="serif text-5xl mb-16 text-left">Unsere <span className="text-studio-rosa">Locations.</span></h2>
+        <div className="flex items-center gap-4 mb-16">
+          <div className="w-10 h-[1px] bg-studio-rosa"></div>
+          <h2 className="serif text-5xl">Unsere <span className="text-studio-rosa italic">Standorte.</span></h2>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {locations.map((loc, i) => (
             <motion.div 
@@ -303,21 +314,22 @@ const Studios = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="aspect-[16/9] overflow-hidden mb-8 rounded-[2px]">
+              <div className="aspect-[16/9] overflow-hidden mb-8 rounded-[2px] relative">
                 <img 
                   src={loc.image} 
                   alt={loc.city} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" 
                   referrerPolicy="no-referrer"
                 />
+                <div className="absolute inset-0 bg-studio-anthracite/10 group-hover:opacity-0 transition-opacity"></div>
               </div>
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div className="text-left">
-                  <h3 className="font-display text-4xl mb-2">{loc.city}</h3>
-                  <p className="text-studio-anthracite/60 text-sm mb-4 flex items-center gap-2">
+                  <h3 className="serif text-4xl mb-2">{loc.city}</h3>
+                  <p className="text-studio-anthracite/60 text-sm mb-4 flex items-center gap-2 font-light">
                     <MapPin size={14} className="text-studio-rosa" /> {loc.address}
                   </p>
-                  <span className="text-studio-matcha text-[10px] uppercase tracking-widest font-bold border border-studio-matcha/20 px-3 py-1 rounded">
+                  <span className="text-studio-matcha text-[10px] uppercase tracking-widest font-bold border border-studio-matcha/20 px-3 py-1 rounded inline-block">
                     {loc.special}
                   </span>
                 </div>
@@ -325,20 +337,24 @@ const Studios = () => {
                   href={loc.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-studio-matcha text-white px-6 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hover:bg-studio-matcha-hover transition-colors"
+                  className="bg-studio-matcha text-white px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hover:bg-studio-matcha-hover transition-colors shadow-lg shadow-studio-matcha/20 whitespace-nowrap"
                 >
-                  Buchen
+                  Kurs buchen
                 </a>
               </div>
               {loc.city === "Vechta" && (
-                <div className="mt-8 p-6 bg-studio-bg rounded-[2px] text-left">
-                  <h4 className="font-display text-xl mb-2 flex items-center gap-2">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  className="mt-8 p-6 bg-studio-bg rounded-[2px] text-left border-l-2 border-studio-rosa"
+                >
+                  <h4 className="serif text-xl mb-2 flex items-center gap-2 text-studio-anthracite">
                     <Clock size={16} className="text-studio-rosa" /> Café @four.7cafe
                   </h4>
-                  <p className="text-xs text-studio-anthracite/60 uppercase tracking-widest leading-relaxed">
+                  <p className="text-[10px] text-studio-anthracite/60 uppercase tracking-[0.2em] font-bold leading-relaxed">
                     Mo-Do & Sa: 14:00 – 17:00 Uhr
                   </p>
-                </div>
+                </motion.div>
               )}
             </motion.div>
           ))}
@@ -361,8 +377,8 @@ const Testimonials = () => {
         {reviews.map((review, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.1 }}
             viewport={{ once: true }}
             className="flex-1 bg-studio-rosa p-10 relative group text-center flex flex-col items-center rounded-[2px]"
@@ -379,12 +395,12 @@ const Testimonials = () => {
 
 const Partners = () => {
   return (
-    <section className="py-12 border-t border-studio-bg bg-white px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 opacity-40 grayscale group hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-        <span className="text-xs uppercase tracking-[0.3em] font-bold text-studio-anthracite">Official Partner of</span>
-        <div className="flex items-center gap-2 font-display text-2xl tracking-tighter">
+    <section className="py-16 border-t border-studio-bg bg-white px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 group">
+        <span className="text-[10px] uppercase tracking-[0.4em] font-bold">Official Partner of</span>
+        <div className="flex items-center gap-2 font-display text-3xl tracking-tighter">
           <span className="text-studio-anthracite">Hanse</span>
-          <span className="text-studio-matcha italic">fit</span>
+          <span className="text-studio-matcha italic font-light">fit</span>
         </div>
       </div>
     </section>
@@ -402,7 +418,7 @@ const InstagramFeed = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-white overflow-hidden">
+    <section className="py-24 px-6 bg-white overflow-hidden border-t border-studio-bg">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div className="text-left">
@@ -427,12 +443,12 @@ const InstagramFeed = () => {
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 0.98 }}
-              className="aspect-square overflow-hidden relative group"
+              className="aspect-square overflow-hidden relative group rounded-[1px]"
             >
               <img 
                 src={item.url} 
                 alt="Instagram post" 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-studio-anthracite/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -449,64 +465,60 @@ const InstagramFeed = () => {
 const Footer = () => {
   return (
     <footer className="bg-white pt-24 pb-12 px-6 border-t border-studio-bg">
-      <div className="max-w-7xl mx-auto font-sans">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 text-left">
           <div className="col-span-1 md:col-span-1">
             <a href="#" className="font-display text-3xl text-studio-rosa mb-8 block">four7pilates</a>
-            <p className="text-studio-anthracite/50 text-sm leading-relaxed max-w-xs">
-              Ein Raum für bewusste Bewegung. Wir glauben an Stärke durch Stille und Fortschritt durch Präzision.
+            <p className="text-studio-anthracite/50 text-xs leading-relaxed max-w-xs font-light">
+              Ein Raum für bewusste Bewegung. Wir glauben an Stärke durch Stille und Fortschritt durch Präzision in Diepholz & Vechta.
             </p>
             <div className="flex gap-4 mt-8">
-              <a href="https://www.instagram.com/four7pilates/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-studio-bg flex items-center justify-center hover:bg-studio-matcha hover:text-white transition-all">
+              <a href="https://www.instagram.com/four7pilates/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-studio-bg flex items-center justify-center hover:bg-studio-matcha hover:text-white transition-all rounded-full">
                 <Instagram size={18} />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-studio-matcha uppercase tracking-widest text-xs font-bold mb-8">Navigation</h4>
-            <ul className="space-y-4 text-sm font-light">
-              <li><a href="#" className="hover:text-studio-rosa transition-colors">Stundenplan</a></li>
-              <li><a href="#" className="hover:text-studio-rosa transition-colors">Preise</a></li>
-              <li><a href="#" className="hover:text-studio-rosa transition-colors">Karriere</a></li>
-              <li><a href="#" className="hover:text-studio-rosa transition-colors">FAQ</a></li>
+            <h4 className="text-studio-matcha uppercase tracking-widest text-[10px] font-bold mb-8">Navigation</h4>
+            <ul className="space-y-4 text-xs font-light text-studio-anthracite/70">
+              <li><a href="#kurse" className="hover:text-studio-rosa transition-colors">Stundenplan</a></li>
+              <li><a href="#uber-uns" className="hover:text-studio-rosa transition-colors">Über Uns</a></li>
+              <li><a href="#studios" className="hover:text-studio-rosa transition-colors">Preise</a></li>
+              <li><a href="#studios" className="hover:text-studio-rosa transition-colors">Standorte</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-studio-matcha uppercase tracking-widest text-xs font-bold mb-8">Kontakt</h4>
-            <ul className="space-y-4 text-sm font-light">
+            <h4 className="text-studio-matcha uppercase tracking-widest text-[10px] font-bold mb-8">Kontakt</h4>
+            <ul className="space-y-6 text-xs font-light text-studio-anthracite/70">
               <li className="flex flex-col gap-1">
-                <span className="flex items-center gap-2 text-studio-anthracite">
-                  <MapPin size={14} className="text-studio-rosa" /> Vechta
-                </span>
-                <span className="text-[10px] text-studio-anthracite/50 ml-6">Bremer Tor 6, 49377 Vechta</span>
+                <span className="flex items-center gap-2 font-medium text-studio-anthracite"><MapPin size={12} className="text-studio-rosa" /> Vechta</span>
+                <span className="text-[10px] opacity-60 ml-5">Bremer Tor 6, 49377 Vechta</span>
               </li>
               <li className="flex flex-col gap-1">
-                <span className="flex items-center gap-2 text-studio-anthracite">
-                  <MapPin size={14} className="text-studio-rosa" /> Diepholz
-                </span>
-                <span className="text-[10px] text-studio-anthracite/50 ml-6">Moorstraße 23, 49356 Diepholz</span>
+                <span className="flex items-center gap-2 font-medium text-studio-anthracite"><MapPin size={12} className="text-studio-rosa" /> Diepholz</span>
+                <span className="text-[10px] opacity-60 ml-5">Moorstraße 23, 49356 Diepholz</span>
               </li>
-              <li className="text-studio-anthracite">hello@four7pilates.com</li>
+              <li className="pt-2 border-t border-studio-bg">hello@four7pilates.com</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-studio-matcha uppercase tracking-widest text-xs font-bold mb-8">Newsletter</h4>
-            <p className="text-sm text-studio-anthracite/50 mb-6">Erhalte exklusive Angebote und Updates.</p>
+            <h4 className="text-studio-matcha uppercase tracking-widest text-[10px] font-bold mb-8">Newsletter</h4>
+            <p className="text-[10px] text-studio-anthracite/50 mb-6 uppercase tracking-widest font-bold">Inspiration & News</p>
             <div className="flex border-b border-studio-anthracite/10 pb-2">
-              <input type="email" placeholder="E-MAIL ADRESSE" className="bg-transparent w-full text-xs uppercase tracking-widest outline-none" />
-              <button className="text-studio-matcha cursor-pointer"><ArrowRight size={16} /></button>
+              <input type="email" placeholder="E-Mail ADRESSE" className="bg-transparent w-full text-[10px] uppercase tracking-widest outline-none text-studio-anthracite" />
+              <button className="text-studio-matcha cursor-pointer hover:translate-x-1 transition-transform"><ArrowRight size={16} /></button>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-studio-bg text-[10px] uppercase tracking-[2px] text-studio-anthracite/30">
-          <p>© 2024 four7pilates. ALL RIGHTS RESERVED.</p>
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-studio-bg text-[9px] uppercase tracking-[2px] text-studio-anthracite/40 font-bold">
+          <p>© 2024 four7pilates. Crafted with Intent.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-studio-anthracite">Impressum</a>
-            <a href="#" className="hover:text-studio-anthracite">Datenschutz</a>
+            <a href="#" className="hover:text-studio-anthracite transition-colors">Impressum</a>
+            <a href="#" className="hover:text-studio-anthracite transition-colors">Datenschutz</a>
           </div>
         </div>
       </div>
@@ -518,7 +530,7 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="selection:bg-studio-rosa/20 font-sans">
+    <div className="selection:bg-studio-rosa/20 font-sans text-studio-anthracite">
       <Navbar />
       <Hero />
       <QuoteSection />
@@ -531,11 +543,11 @@ export default function App() {
       <InstagramFeed />
 
       {/* Final CTA */}
-      <section className="bg-studio-anthracite text-white py-40 px-6 text-center relative overflow-hidden">
+      <section className="bg-studio-anthracite text-white py-48 px-6 text-center relative overflow-hidden">
         <motion.div
            initial={{ opacity: 0, scale: 1.1 }}
-           whileInView={{ opacity: 0.15, scale: 1 }}
-           transition={{ duration: 2 }}
+           whileInView={{ opacity: 0.1, scale: 1 }}
+           transition={{ duration: 2.5 }}
            className="absolute inset-0 pointer-events-none"
         >
           <img
@@ -547,13 +559,14 @@ export default function App() {
         </motion.div>
 
         <div className="relative z-10 max-w-4xl mx-auto">
-          <h2 className="serif text-5xl md:text-8xl mb-8 leading-tight">Ready to <br /><span className="text-studio-rosa">start?</span></h2>
-          <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto font-light tracking-wide">Wähle deinen Standort und beginne deine Reise bei four7pilates.</p>
+          <span className="text-studio-rosa uppercase tracking-[0.4em] text-[10px] font-bold block mb-8 opacity-80">Join the movement</span>
+          <h2 className="serif text-6xl md:text-8xl mb-12 leading-tight">Ready to <br /><span className="text-studio-rosa italic">start?</span></h2>
+          <p className="text-base text-white/50 mb-16 max-w-xl mx-auto font-light tracking-[0.05em] uppercase">Wähle deinen Standort und beginne deine Reise bei four7pilates.</p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="https://www.eversports.de/scl/four7pilates-vechta" target="_blank" rel="noopener noreferrer" className="bg-studio-matcha text-white px-12 py-6 uppercase tracking-widest text-sm font-bold hover:bg-studio-matcha-hover rounded-full transition-all shadow-xl shadow-black/20">
+            <a href="https://www.eversports.de/scl/four7pilates-vechta" target="_blank" rel="noopener noreferrer" className="bg-studio-matcha text-white px-12 py-6 uppercase tracking-widest text-[11px] font-bold hover:bg-studio-matcha-hover rounded-full transition-all shadow-2xl shadow-black/40">
               Book Vechta
             </a>
-            <a href="https://www.eversports.de/scl/four7-pilates-diepholz" target="_blank" rel="noopener noreferrer" className="bg-studio-matcha text-white px-12 py-6 uppercase tracking-widest text-sm font-bold hover:bg-studio-matcha-hover rounded-full transition-all shadow-xl shadow-black/20">
+            <a href="https://www.eversports.de/scl/four7-pilates-diepholz" target="_blank" rel="noopener noreferrer" className="bg-white text-studio-anthracite px-12 py-6 uppercase tracking-widest text-[11px] font-bold hover:bg-studio-bg rounded-full transition-all shadow-2xl shadow-black/40">
               Book Diepholz
             </a>
           </div>
@@ -564,3 +577,5 @@ export default function App() {
     </div>
   );
 }
+
+       
